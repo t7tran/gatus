@@ -1,0 +1,2 @@
+# gatus
+Gatus with tinydns
