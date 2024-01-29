@@ -5,5 +5,8 @@ sleep ${DELAY_START_SECONDS:-1}
 if [[ -n "$WAITFOR_HOST" && -n "$WAITFOR_PORT" ]]; then
 	for (( i=1; i<=${TIMEOUT:-30}; i++ )); do nc -zw1 $WAITFOR_HOST $WAITFOR_PORT && break || sleep 1; done
 fi
+if [[ -n "$WAITFOR_UNBOUND_HOST" ]]; then
+	for (( i=1; i<=${TIMEOUT:-30}; i++ )); do nc -zw1 $WAITFOR_UNBOUND_HOST ${WAITFOR_UNBOUND_PORT:-5353} && break || sleep 1; done
+fi
 
 exec "${@:-gatus}"
