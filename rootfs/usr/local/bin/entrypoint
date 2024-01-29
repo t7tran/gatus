@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [[ -n "$WAITFOR_HOST" && -n "$WAITFOR_PORT" ]]; then
+	for (( i=1; i<=${TIMEOUT:-30}; i++ )); do nc -zw1 $WAITFOR_HOST $WAITFOR_PORT && break || sleep 1; done
+fi
+
+exec "${@:-gatus}"
