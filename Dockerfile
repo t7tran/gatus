@@ -1,13 +1,13 @@
-FROM twinproduction/gatus:v5.18.1 AS gatus
+FROM twinproduction/gatus:v5.20.0 AS gatus
 
-FROM alpine:3.22.0 AS builder
+FROM alpine:3.22.1 AS builder
 
 COPY ./rootfs /build/
 COPY --from=gatus /gatus /build/usr/local/bin
 COPY --from=gatus /config/config.yaml /build/config/config.yaml
 COPY --from=gatus /etc/ssl/certs/ca-certificates.crt /build/etc/ssl/certs/ca-certificates.crt
 
-FROM alpine:3.22.0
+FROM alpine:3.22.1
 
 COPY --from=builder /build /
 
