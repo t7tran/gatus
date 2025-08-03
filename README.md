@@ -2,5 +2,5 @@
 Gatus with unbound
 
 ```
-docker run --rm -v `pwd`/unbound:/etc/unbound ghcr.io/t7tran/gatus:5.20.0
+docker run --rm -v `pwd`/unbound:/etc/unbound ghcr.io/t7tran/gatus:5.21.0
 ```
