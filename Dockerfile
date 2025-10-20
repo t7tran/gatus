@@ -1,4 +1,4 @@
-FROM twinproduction/gatus:v5.26.0 AS gatus
+FROM twinproduction/gatus:v5.27.0 AS gatus
 
 FROM alpine:3.22.1 AS builder
 
